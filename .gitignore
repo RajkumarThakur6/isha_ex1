@@ -1,0 +1,10 @@
+.env
+.env.local
+.chat_memory.json
+.chat_data/
+__pycache__/
+*.py[cod]
+.venv/
+myenv/
+~$*.docx
+~$*.pptx

@@ -1,1 +1,10 @@
-dotenv
+python-dotenv
+python-pptx
+python-docx
+openai
+ollama
+fastapi
+uvicorn[standard]
+reportlab
+httpx2
+mysql-connector-python

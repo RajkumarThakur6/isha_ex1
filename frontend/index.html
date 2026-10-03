@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#18343b">
+    <link rel="icon" href="data:,">
+    <title>LLM Chat Practice</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="LLM Chat Practice home">
+          <span class="brand-mark" aria-hidden="true">AI</span>
+          <span>LLM practice</span>
+        </a>
+        <span class="model-label"><span id="mode-label">DEMO MODE</span> · <span id="model-name">loading model</span></span>
+      </header>
+
+      <section class="chat-card" aria-labelledby="page-title">
+        <div class="chat-heading">
+          <div>
+            <p class="eyebrow">YOUR LEARNING CHAT</p>
+            <h1 id="page-title">Ask. Explore. Learn.</h1>
+            <p class="intro">Ask follow-up questions. This chat remembers this browser's conversation.</p>
+            <aside class="demo-notice" id="demo-notice" hidden>
+              <strong>Demo only — replies are sample echoes, not AI answers.</strong>
+              <span>To get real AI answers, set <code>LLM_DEMO_MODE=false</code>.
+                Ollama and LM Studio run locally with no cloud API key; hosted providers
+                need their own key and may cost money.</span>
+              <a href="https://ollama.com/download/windows" target="_blank" rel="noopener noreferrer">Ollama local option ↗</a>
+            </aside>
+            <aside class="demo-notice" id="provider-notice" hidden>
+              <strong>Local model — no cloud API key needed.</strong>
+              <span id="provider-instructions">If Ollama is not running, install it and run
+                <code>ollama pull llama3.2:3b</code>, then restart this chat server.</span>
+              <a id="provider-link" href="https://ollama.com/download/windows" target="_blank" rel="noopener noreferrer">Install Ollama for Windows ↗</a>
+            </aside>
+          </div>
+          <button class="clear-button" id="clear-chat" type="button">New chat</button>
+        </div>
+
+        <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions text">
+          <div class="welcome-message" id="welcome-message">
+            <span class="welcome-icon" aria-hidden="true">✳</span>
+            <h2>What would you like to learn?</h2>
+            <p>Try asking a question, then ask a follow-up.</p>
+          </div>
+        </div>
+
+        <form class="composer" id="chat-form">
+          <label class="visually-hidden" for="message-input">Your message</label>
+          <textarea id="message-input" name="message" rows="1" maxlength="4000"
+            placeholder="Message the AI…" required></textarea>
+          <button class="send-button" id="send-button" type="submit" aria-label="Send message">
+            <span aria-hidden="true">↑</span>
+          </button>
+        </form>
+        <p class="footnote" id="status-message">AI can make mistakes. Do not share secrets or sensitive information.</p>
+      </section>
+      <footer>Built for learning · Provider credentials stay on the server</footer>
+    </main>
+  </body>
+</html>
